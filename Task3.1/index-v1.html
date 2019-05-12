@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+
+	<title>Task 3.1</title>
+</head>
+<body>
+	<div class="header"></div>
+	<div class="body">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 offset-sm-2 text-center">
+					<hr>
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#cau1">
+						Trả lời câu 1
+					</button>
+					<div class="collapse" id="cau1">
+						<hr>
+						<div class="cau1">
+							<p>
+								Có những cách đặt Javascript nào trong file HTML? Cho ví dụ minh họa.
+							</p>
+							<p class="tieude">
+								Cách 1: Internal - viết luôn trong file html.
+							</p>
+<pre>
+	<code>
+	&lthtml&gt
+	&lthead&gt
+	&lttitle&gt&lt/title&gt
+	&ltscript language="javascript"&gt
+	alert("Hello World!");
+	&lt/script&gt
+	&lt/head&gt
+	&ltbody&gt
+
+	&lt/body&gt
+	&lt/html&gt
+	</code>
+</pre>
+							<p class="tieude">
+								Cách 2: External - viết một file js rồi sau đó import vào
+							</p>
+<pre>
+	<code>
+	&ltscript language="javascript" src="demo.js"&gt&lt/script&gt
+	</code>
+</pre>
+							<p>Lúc này trong file demo.js sẽ không cần cặp &ltscript&gt&lt/script&gt nữa, trình duyệt sẽ biết được định dạng của file này là javascript.</p>
+							<p class="tieude">
+								Cách 3: Inline - trực tiếp trong thẻ html
+							</p>
+<pre>
+	<code>
+	&ltinput type="button" onclick="alert(1)" value="Click Me"/&gt
+	</code>
+</pre>
+							<p>Trong đoạn code trên, khi ta click vào button sự kiện onclick sẽ kích hoạt để thực thi lệnh alert(1) - đưa ra popup có giá trị 1</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-8 offset-sm-2 text-center">
+					<hr>
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#cau2">
+						Trả lời câu 2
+					</button>
+					<div class="collapse" id="cau2">
+						<hr>
+						<div class="cau2">
+							<p>Có thể hiển thị dữ liệu từ Javascript với những cách nào? Cho ví dụ minh họa.</p>
+							<p class="tieude">Hiển thị trong một phần tử HTML, sử dụng innerHTML.</p>
+							<p>Khi đó chúng ta phải lấy được phần tử HTML bằng phương thức document.getElementById(id)</p>
+							<p>id là để xác định phần tử HTML,còn innerHTML là thuộc tính xác định nội dung bên trong phần tử đó.</p>
+<pre>
+	<code>
+	&lt!DOCTYPE html&gt
+	&lthtml&gt
+	&ltbody&gt
+
+	&lth1&gtMy First Web Page&lt/h1&gt
+	&ltp&gtMy First Paragraph&lt/p&gt
+
+	&ltp id="demo"&gt&lt/p&gt
+
+	&ltscript&gt
+	document.getElementById("demo").innerHTML = 5 + 6;
+	&lt/script&gt
+
+	&lt/body&gt
+	&lt/html&gt
+	</code>
+</pre>
+							<p>Kết quả:</p>
+							<div class="output">
+								<h2>My First Web Page</h2>
+								<p>My First Paragraph.</p>
+
+								11
+							</div>
+
+
+
+							<p class="tieude">Hiển thị vào file HTML, sử dụng document.write()</p>
+							<p>Ví dụ:</p>
+<pre>
+	<code>
+	&lt!DOCTYPE html&gt
+	&lthtml&gt
+	&ltbody&gt
+
+	&lth1&gtMy First Web Page&lt/h1&gt
+	&ltp&gtMy first paragraph.&lt/p&gt
+
+	&ltscript&gt
+	document.write(5 + 6);
+	&lt/script&gt
+
+	&lt/body&gt
+	&lt/html&gt
+	</code>
+</pre>
+							<p>Kết quả:</p>
+							<div class="output">
+								<h1>My First Web Page</h1>
+								<p>My first paragraph.</p>
+
+								<script>
+									document.write(5 + 6);
+								</script>
+							</div>
+							<div class="note">
+								<p>Lưu ý là sử dụng document.write() sau khi trang đã được load sẽ xóa toàn bộ các phần tử tồn tại trên trang đó.</p>
+							</div>
+							<p>Ví dụ:</p>
+<pre>
+	<code>
+	&lt!DOCTYPE html&gt
+	&lthtml&gt
+	&ltbody&gt
+
+	&lth1&gtMy First Web Page&lt/h1&gt
+	&ltp&gtMy first paragraph.&lt/p&gt
+
+	&ltbutton type="button" onclick="document.write(5 + 6)"&gtTry it&lt/button&gt
+
+	&lt/body&gt
+	&lt/html&gt
+	</code>
+</pre>
+							<p>Kết quả: Khi click vào button</p>
+							<div class="output">
+								<h1>My First Web Page</h1>
+								<p>My first paragraph.</p>
+
+								<button type="button" onclick="document.write(5 + 6)">Try it</button>
+							</div>
+							<p class="tieude">Hiển thị ra hộp cảnh báo alert, sử dụng window.alert()</p>
+							<p>Ví dụ:</p>
+<pre>
+	<code>
+	&lt!DOCTYPE html&gt
+	&lthtml&gt
+	&ltbody&gt
+
+	&lth1&gtMy First Web Page&lt/h1&gt
+	&ltp&gtMy first paragraph.&lt/p&gt
+
+	&ltscript&gt
+	window.alert(5 + 6);
+	&lt/script&gt
+
+	&lt/body&gt
+	&lt/html&gt
+	</code>
+</pre>
+							<p>Kết quả: Khi click vào button</p>
+							<div class="output">
+								<h1>My First Web Page</h1>
+								<p>My first paragraph.</p>
+								<button type="button" onclick="window.alert(5 + 6)">Try it</button>
+							</div>
+							<p class="tieude">Hiển thị qua console của trình duyệt, sử dụng console.log()</p>
+							<p>Cách này thường dùng cho mục đích debug</p>
+							<p>Ví dụ:</p>
+<pre>
+	<code>
+	&lt!DOCTYPE html&gt
+	&lthtml&gt
+	&ltbody&gt
+
+	&ltscript&gt
+	console.log(5 + 6);
+	&lt/script&gt
+
+	&lt/body&gt
+	&lt/html&gt
+	</code>
+</pre>
+							<p>Kết quả:</p>
+							<div class="output">
+								<p>Hãy bật cosole browser lên</p>
+								<script>
+									function hihi(){
+										console.log(5 + 6);
+									}
+								</script>
+								<button type="button" onclick="hihi()">Try it</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-8 offset-sm-2 text-center">
+					<hr>
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#cau3">
+						Trả lời câu 3
+					</button>
+					<div class="collapse" id="cau3">
+						<hr>
+						<div class="cau3">
+							<p>Làm thế nào để truy xuất 1 thẻ HTML bất kỳ theo ID, class, Name, tên thẻ HTML và theo CSS Selector? Cho ví dụ minh họa.</p>
+							<p class="tieude">Truy xuất theo ID, ta sử dụng phương thức document.getElementById('id')</p>
+							<p>Ví dụ</p>
+<pre>
+	<code>
+	// Lấy thẻ input
+	var element = document.getElementById('website');
+
+	// Lấy giá trị của thẻ input
+	document.write(element.value);
+	</code>
+</pre>
+							<p class="tieude">Truy xuất theo Name, ta sử dụng phương thức document.getElementByName(name)</p>
+							<p>Ví dụ</p>
+<pre>
+	<code>
+	// Lấy thẻ input
+	var element = document.getElementByName('website');
+	</code>
+</pre>
+							<p class="tieude">Truy xuất theo tên thẻ HTML, ta sử dụng phương thức document.getElementsByTagName('tagname')</p>
+							<p>Ví dụ</p>
+<pre>
+	<code>
+	// Lấy thẻ input
+	var element = document.getElementsByTagName('input');
+
+	// Lấy giá trị của thẻ input
+	document.write(element[0].value);
+	</code>
+</pre>
+							<p class="tieude">Truy xuất theo class, ta sử dụng phương thức document.getElementsByClassName('input')</p>
+							<p>Ví dụ</p>
+<pre>
+	<code>
+	// Lấy thẻ input
+	var element = document.getElementsByClassName('website');
+
+	// Lấy giá trị của thẻ input
+	document.write(element[0].value);
+	</code>
+</pre>
+							<p class="tieude">Truy xuất theo Css Selector, ta sử dụng phương thức document.querySelectorAll("selector.css")</p>
+							<p>Ví dụ: Giả sử ta có một đoạn mã HTML như sau:</p>
+<pre>
+	<code>
+	&lthtml&gt
+	&ltbody&gt
+	&ltinput type="text" value="thẻ không cần lấy" class="website"/&gt
+	&ltdiv&gt
+	&ltinput type="text" value="Thẻ Cần Lấy" class="website"/&gt
+	&ltinput type="text" value="thẻ không cần lấy"/&gt
+	&lt/div&gt
+	&lt/body&gt
+	&lt/html&gt
+	</code>
+</pre>
+							<p>Và giờ khi muốn truy vấn đến thẻ input có class website nằm trong thẻ div thì ta có cú pháp sau, kết quả trả về là một mảng các Objects:</p>
+<pre>
+	<code>
+	var element = document.querySelectorAll("div input.website");
+	</code>
+</pre>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-8 offset-sm-2 text-center">
+					<hr>
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#cau4">
+						Trả lời câu 4
+					</button>
+					<div class="collapse" id="cau4">
+						<hr>
+						<div class="cau4">
+							<p>Xác định các lệnh Javascript tương ứng để thực hiện các yêu cầu sau:</p>
+							<ul>
+								<li>Hiển thị ngày tháng và thời gian hiện tại.</li>
+								<li>Thay đổi nội dung trong 1 thẻ HTML đang có</li>
+								<li>Hiển thị một số ngẫu nhiên (random) từ 1 đến 1000.</li>
+								<li>Cộng, trừ, nhân, chia, chia lấy phần dư.</li>
+							</ul>
+							<p class="tieude">Hiển thị ngày tháng và thời gian hiện tại.</p>
+							<p>Để giải quyết bài toán này, ta cần dùng đến đối tượng Date. Nó cung cấp cho ta rất nhiều phương thức liên quan đến ngày tháng và thời gian.</p>
+							<p>Kết quả:</p>
+							<div class="output">
+								<script type="text/javascript">
+									function hihi(){
+										var date = new Date();
+										var gio = date.getHours();
+										if (gio < 10){
+											gio = "0" + gio;
+										}
+										var phut = date.getMinutes();
+										if (phut < 10){
+											phut = "0" + phut;
+										}
+										var giay = date.getSeconds();
+										if (giay < 10){
+											giay = "0" + giay;
+										}
+										var day =  ["Chủ Nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
+										var resultime = gio + ":" + phut + ":" + giay;
+										var month = date.getMonth() + 1;
+										var resultngay = "Hôm nay là " + day[date.getDay()] + " , ngày " + date.getDate() + " tháng " + month + " năm " + date.getFullYear() + ".";
+										document.getElementById('ngay').innerHTML = resultngay;
+										document.getElementById('time').innerHTML = resultime;
+										var t = setTimeout(function() {
+											hihi();
+										}, 500);
+										console.log("Done");
+									}
+								</script>
+								<button type="button" onclick="hihi()">Try it</button>
+								<p id="ngay"></p>
+								<p id="time"></p>
+							</div>
+							<p class="tieude">Thay đổi nội dung trong 1 thẻ HTML đang có</p>
+							<p>Để thay đổi nội dung 1 thẻ HTML, trước hết ta phải lấy thẻ đó ra từ cây DOM sau đó sử dụng phương thức innerHTML để thay đổi toàn bộ nội dung bên trong thẻ.</p>
+							<p>Kết quả:</p>
+							<div class="output">
+								<script type="text/javascript">
+									function get(){
+										var item = document.getElementById("noidung");
+										alert("Nội dung lấy được là: " + item.innerHTML);
+									}
+									function set(){
+										document.getElementById("noidung").innerHTML = "Nội dung đã được thay đổi";
+									}
+								</script>
+								<div id="noidung">Đây là nội dung</div>
+								<input type="button" value="Lấy nội dung" id="get" onclick="get()" />
+								<input type="button" value="Thay đổi nội dung" id="set" onclick="set()" />
+							</div>
+							<p class="tieude">Hiển thị một số ngẫu nhiên (random) từ 1 đến 1000.</p>
+							<p>Để giải quyết vấn đề này, ta sử dụng phương thức random của đối tượng Math. Khi sử dụng Math.random() nó sẽ trả về ngẫu nhiên một số giữa 0 và 1.</p>
+							<p>Kết quả:</p>
+							<div class="output">
+								<script type="text/javascript">
+
+									function set(){
+										document.getElementById("random").innerHTML = Math.floor(Math.random() * 1000) + 1;
+									}
+								</script>
+								<div>Random từ 1 đến 1000: <span id="random"></span></div>
+								<input type="button" value="Clcik vào để Random" id="set" onclick="set()" />
+							</div>
+							<p class="tieude">Cộng, trừ, nhân, chia, chia lấy phần dư.</p>
+							<p>Kết quả:</p>
+							<div class="output">
+								<script type="text/javascript">
+
+									function tinh(){
+										var a = Number(document.getElementById("a").value);
+										var phep = document.getElementById("phep").value;
+										var b = Number(document.getElementById("b").value);
+										var ketqua;
+										if (phep == "+")
+										{
+											ketqua = a + b;
+											document.getElementById("ketqua").value = ketqua;
+										}
+										else if (phep == "-")
+										{
+											ketqua = a - b;
+											document.getElementById("ketqua").value = ketqua;
+										}
+										else if (phep == "*")
+										{
+											ketqua = a * b;
+											document.getElementById("ketqua").value = ketqua;
+										}
+										else if (phep == "/")
+										{
+											ketqua = a / b;
+											document.getElementById("ketqua").value = ketqua;
+										}
+										else if (phep == "%")
+										{
+											ketqua = a % b;
+											document.getElementById("ketqua").value = ketqua;
+										}
+									}
+								</script>
+								<input type="text" value ="1" id="a"/><br>
+								<input type="text" value ="+" id="phep"/><br>
+								<input type="text" value ="2" id="b"/><br>
+								<input type="text" id="ketqua"/><br>
+								<input type="button" value="Click vào để tính" onclick="tinh()" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+</body>
+</html>

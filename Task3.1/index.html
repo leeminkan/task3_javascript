@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="header">
+      <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Link with href
+      </a>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Button with data-target
+      </button>
+    </div>
+    <div class="collapse main" id="collapseExample">
+      <div class="cau1">
+        <p>
+          Có những cách đặt Javascript nào trong file HTML? Cho ví dụ minh họa.
+        </p>
+        <p>
+          Cách 1: Internal - viết luôn trong file html.
+        </p>
+        <pre>
+          <code>
+            &lthtml&gt
+                &lthead&gt
+                    &lttitle&gt&lt/title&gt
+                    &ltscript language="javascript"&gt
+                        alert("Hello World!");
+                    &lt/script&gt
+                &lt/head&gt
+                &ltbody&gt
+                     
+                &lt/body&gt
+            &lt/html&gt
+          </code>
+        </pre>
+        <p>
+          Cách 2: External - viết một file js rồi sau đó import vào
+        </p>
+        <pre>
+          <code>
+            &ltscript language="javascript" src="demo.js"&gt&lt/script&gt
+          </code>
+        </pre>
+        <p>Lúc này trong file demo.js sẽ không cần cặp &ltscript&gt&lt/script&gt nữa, trình duyệt sẽ biết được định dạng của file này là javascript.</p>
+        <p>
+          Cách 3: Inline - trực tiếp trong thẻ html
+        </p>
+        <pre>
+          <code>
+            &ltinput type="button" onclick="alert(1)" value="Click Me"/&gt
+          </code>
+        </pre>
+        <p>Trong đoạn code trên, khi ta click vào button sự kiện onclick sẽ kích hoạt để thực thi lệnh alert(1) - đưa ra popup có giá trị 1</p>
+      </div>
+      <div class="cau2">
+        <p>Có thể hiển thị dữ liệu từ Javascript với những cách nào? Cho ví dụ minh họa.</p>
+        <p>Hiển thị trong một phần tử HTML, sử dụng innerHTML.</p>
+        <p>Khi đó chúng ta phải lấy được phần tử HTML bằng phương thức document.getElementById(id)</p>
+        <p>id là để xác định phần tử HTML,còn innerHTML là thuộc tính xác định nội dung bên trong phần tử đó.</p>
+        <pre>
+          <code>
+            &lt!DOCTYPE html&gt
+            &lthtml&gt
+            &ltbody&gt
+
+            &lth1&gtMy First Web Page&lt/h1&gt
+            &ltp&gtMy First Paragraph&lt/p&gt
+
+            &ltp id="demo"&gt&lt/p&gt
+
+            &ltscript&gt
+            document.getElementById("demo").innerHTML = 5 + 6;
+            &lt/script&gt
+
+            &lt/body&gt
+            &lt/html&gt
+          </code>
+        </pre>
+        <p>Kết quả:</p>
+        <div class="output">
+          <h2>My First Web Page</h2>
+          <p>My First Paragraph.</p>
+
+          11
+        </div>
+
+
+
+        <p>Hiển thị vào file HTML, sử dụng document.write()</p>
+        <p>Ví dụ:</p>
+        <pre>
+          <code>
+            &lt!DOCTYPE html&gt
+            &lthtml&gt
+            &ltbody&gt
+
+            &lth1&gtMy First Web Page&lt/h1&gt
+            &ltp&gtMy first paragraph.&lt/p&gt
+
+            &ltscript&gt
+            document.write(5 + 6);
+            &lt/script&gt
+
+            &lt/body&gt
+            &lt/html&gt
+          </code>
+        </pre>
+        <p>Kết quả:</p>
+        <div class="output">
+          <h1>My First Web Page</h1>
+          <p>My first paragraph.</p>
+
+          <script>
+          document.write(5 + 6);
+          </script>
+        </div>
+        <div class="note">
+          <p>Lưu ý là sử dụng document.write() sau khi trang đã được load sẽ xóa toàn bộ các phần tử tồn tại trên trang đó.</p>
+        </div>
+        <p>Ví dụ:</p>
+        <pre>
+          <code>
+            &lt!DOCTYPE html&gt
+            &lthtml&gt
+            &ltbody&gt
+
+            &lth1&gtMy First Web Page&lt/h1&gt
+            &ltp&gtMy first paragraph.&lt/p&gt
+
+            &ltbutton type="button" onclick="document.write(5 + 6)"&gtTry it&lt/button&gt
+
+            &lt/body&gt
+            &lt/html&gt
+          </code>
+        </pre>
+        <p>Kết quả: Khi click vào button</p>
+        <div class="output">
+          11
+        </div>
+        <p>Hiển thị ra hộp cảnh báo alert, sử dụng window.alert()</p>
+        <p>Ví dụ:</p>
+        <pre>
+          <code>
+            &lt!DOCTYPE html&gt
+            &lthtml&gt
+            &ltbody&gt
+
+            &lth1&gtMy First Web Page&lt/h1&gt
+            &ltp&gtMy first paragraph.&lt/p&gt
+
+            &ltscript&gt
+            window.alert(5 + 6);
+            &lt/script&gt
+
+            &lt/body&gt
+            &lt/html&gt
+          </code>
+        </pre>
+        <p>Kết quả: Khi click vào button</p>
+        <div class="output">
+          <h1>My First Web Page</h1>
+          <p>My first paragraph.</p>
+          <button type="button" onclick="window.alert(5 + 6)">Try it</button>
+        </div>
+        <p>Hiển thị qua console của trình duyệt, sử dụng console.log()</p>
+        <p>Cách này thường dùng cho mục đích debug</p>
+        <p>Ví dụ:</p>
+        <pre>
+          <code>
+            &lt!DOCTYPE html&gt
+            &lthtml&gt
+            &ltbody&gt
+
+            &ltscript&gt
+            console.log(5 + 6);
+            &lt/script&gt
+
+            &lt/body&gt
+            &lt/html&gt
+          </code>
+        </pre>
+        <p>Kết quả:</p>
+        <div class="output">
+          <p>Hãy bật cosole browser lên</p>
+          <script>
+            console.log(5 + 6);
+          </script>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+
+	<title>Task 3.4</title>
+</head>
+<body onload="RandomBackground(); time();">
+	<div class="header">
+		<p>NEW TAB</p>
+	</div>
+	<div class="body">
+		<div class="content">
+			<h1><span id="time"></span></h1>
+			<p><span id="hello"></span>, <span id="name"></span></p>
+			<div id="cau3"></div>
+		</div>
+		<div id="cau4"><p>Đây là danh ngôn đấy.</p></div>
+		<div>
+			<button id="mybutton" class="open-button" onclick="openForm()">Change</button>
+
+			<div class="form-popup" id="myForm">
+				<form class="form-container" onsubmit="return false;">
+					<h1>Change</h1>
+
+					<label for="ten"><b>Tên</b></label>
+					<input type="text" placeholder="Nhập tên" name="ten" required id="ten">
+
+					<label for="date"><b>Ngày sinh</b></label>
+					<input type="date" value="1998-11-19" name="date" required id="ngaysinh">
+
+					<button type="button" class="btn" onclick="changebyform()">Change</button>
+					<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		var a = "Don’t cry because it’s over, smile because it happened. ― Dr. Seuss";
+		var b = "I’m selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can’t handle me at my worst, then you sure as hell don’t deserve me at my best. ― Marilyn Monroe";
+		var c = "You only live once, but if you do it right, once is enough. ― Mae West"
+		var d = "In three words I can sum up everything I’ve learned about life: it goes on. ― Robert Frost"
+		var e = "To live is the rarest thing in the world. Most people exist, that is all. ― Oscar Wilde";
+		var f = "Insanity is doing the same thing, over and over again, but expecting different results. ― Narcotics Anonymous";
+		var g = "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle. ― Albert Einstein";
+		var h = "It does not do to dwell on dreams and forget to live. ― J.K. Rowling, Harry Potter and the Sorcerer’s Stone";
+		var Danhngon = [a,b,c,d,e,f,g,h];
+		function RandomBackground() {
+			// body...
+			var random = Math.floor(Math.random() * 4) + 1;
+			var img = "./img/" + random + ".jpg";
+			document.body.background = img;
+			if ((sessionStorage.getItem("name"))&&(sessionStorage.getItem("date")))
+			{
+			hello(sessionStorage.getItem("name"), sessionStorage.getItem("date"));
+			}
+			else
+			{
+				hello('Kan', '1998-11-19');
+			}
+			danhngon();
+		}
+		function time(){
+			var date = new Date();
+			var h;
+			var m;
+			var s;
+			h = checktime(date.getHours());
+			m = checktime(date.getMinutes());
+			s = checktime(date.getSeconds());
+			document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+			var retime = setTimeout(function(){
+				time();
+			}, 1000);
+		}
+		function checktime(x){
+			if (x < 10){
+				x = "0" + x;
+			}
+			return x;
+		}
+		function hello(ten, ngaysinh){
+			//Buoi
+	            var timenow = new Date();
+	            var buoi;
+	            if ((timenow.getHours() > 3) && (timenow.getHours() < 11))
+	            {
+	            	buoi = "buổi sáng"
+	            }
+	            else if ((timenow.getHours() >= 11) && (timenow.getHours() < 13))
+	            {
+	            	buoi = "buổi trưa"
+	            }else if ((timenow.getHours() >= 13) && (timenow.getHours() < 18))
+	            {
+	            	buoi = "buổi chiều"
+	            }else
+	            {
+	            	buoi = "buổi tối"
+	            }
+	        document.getElementById('hello').innerHTML = "Chào " + buoi;
+	        document.getElementById('name').innerHTML = ten;
+
+			var d2= new Date(ngaysinh);
+			live(d2);
+		}
+		function danhngon()
+		{
+			var random = Math.floor(Math.random() * 8);
+			
+			document.getElementById("cau4").innerHTML = Danhngon[random];
+		}
+		function live(ngaysinh){
+			var now = new Date();
+			var m = moment(now);
+			var years = m.diff(ngaysinh, 'years');
+			m.add(-years, 'years');
+			var months = m.diff(ngaysinh, 'months');
+			m.add(-months, 'months');
+			var days = m.diff(ngaysinh, 'days');
+			document.getElementById("cau3").innerHTML = "Bạn đang ở tuổi " + years + " và bạn đã sống được " + years + " năm " + months + " tháng " + days + " ngày.";
+	        }
+        function live2(ngaysinh){
+        	var now = new Date();
+        	var diff_date =  now - ngaysinh;
+
+        	var num_years = Math.floor(diff_date/31536000000);
+        	var num_months = Math.floor((diff_date % 31536000000)/2628000000);
+        	var num_days = Math.floor(((diff_date % 31536000000) % 2628000000)/86400000);
+        }
+
+
+
+
+        function openForm() {
+        	document.getElementById("myForm").style.display = "block";
+        	document.getElementById("mybutton").style.display = "none";
+        }
+
+        function closeForm() {
+        	document.getElementById("myForm").style.display = "none";
+
+        	document.getElementById("mybutton").style.display = "block";
+        }
+        function changebyform() {
+        	var ten = document.getElementById('ten').value;
+        	var ngaysinh = document.getElementById('ngaysinh').value;
+        	if (typeof(Storage) !== "undefined") {
+        		sessionStorage.setItem("name", ten);
+
+        		sessionStorage.setItem("date", ngaysinh);
+        		hello(sessionStorage.getItem("name"), sessionStorage.getItem("date"));
+        	}
+			else
+			{
+				hello(ten, ngaysinh);
+			}
+			closeForm();
+			}
+    </script>
+
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/moment.js"></script>
+</body>
+</html>

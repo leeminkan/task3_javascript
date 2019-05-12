@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+
+	<title>Task 3.3</title>
+</head>
+<body>
+	<div class="header"></div>
+	<div class="body">
+		
+		<div class="modal-dialog text-center">
+			<div class="col-sm-12 main-section">
+				<div class="modal-content">
+					<form class="col-12" onsubmit="return false">
+						<div class="form-group">
+							<div class="form-row">
+								<div class="col">
+									<label>Tên</label>
+									<input type="text" class="form-control" value="Phúc" required id="ten">
+								</div>
+								<div class="col">
+									<label>Họ</label>
+									<input type="text" class="form-control" value="Nguyễn Hoàng" required id="ho">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Giới tính: </label>
+							<label for="nam"><input  required="true" type="radio" name="gioi-tinh" id="nam" value="Nam" checked="true">Nam</label>
+							<label for="nu"><input type="radio" name="gioi-tinh" id="nu" value="nu">Nữ</label>
+						</div>
+						<div class="form-group">
+							<label>Ngày sinh: 
+							<input class="form-control" required="true" type="date" id="ngaysinh" value="1998-11-19">
+						</label>
+						<div class="form-group">
+							<button type="button" class="btn btn-primary" onclick="start();">Start</button>
+						</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 offset-sm-2 text-center">
+					<p id ="cau1"></p>
+					<p id ="cau2"></p>
+					<div id="cau3"></div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var t;
+			function start()
+			{
+				console.log("OK");
+				//Ho ten
+				var ho = document.getElementById("ho").value;
+				var ten = document.getElementById("ten").value;
+				//Gioi tinh
+				var danhxung;
+				if (document.getElementsByName("gioi-tinh")[0].checked == true)
+				{
+					danhxung = "Anh";
+				}
+				else
+				{
+					
+					danhxung = "Chị";
+				}
+				
+	            //Ngay sinh
+	            var datadate = document.getElementById("ngaysinh").value;
+	            var ngaysinh = new Date(datadate);
+	            //Buoi
+	            var timenow = new Date();
+	            var buoi;
+	            if ((timenow.getHours() > 3) && (timenow.getHours() < 11))
+	            {
+	            	buoi = "buổi sáng"
+	            }
+	            else if ((timenow.getHours() >= 11) && (timenow.getHours() < 13))
+	            {
+	            	buoi = "buổi trưa"
+	            }else if ((timenow.getHours() >= 13) && (timenow.getHours() < 18))
+	            {
+	            	buoi = "buổi chiều"
+	            }else
+	            {
+	            	buoi = "buổi tối"
+	            }
+	            //tuoi
+	            var tuoi = timenow.getFullYear() - ngaysinh.getFullYear();
+	            if ((timenow.getMonth() - ngaysinh.getMonth()) < 0)
+	            {
+	            	tuoi--;
+	            }
+	            else if ((timenow.getMonth() - ngaysinh.getMonth()) == 0)
+	            {
+	            	if ((timenow.getDate() - ngaysinh.getDate()) < 0)
+	            	tuoi--;
+	            }
+	            var tuoit = tuoi + 1;
+	            //ngay con lai
+	            var ngay = tinhngay(timenow, ngaysinh);
+	            document.getElementById("cau1").innerHTML = "Xin chào " + buoi + ", " + danhxung.toLowerCase() + " " + ho + " " + ten;
+	            document.getElementById("cau2").innerHTML = danhxung + " đang ở tuổi " + tuoi + " và còn " + ngay + " ngày nữa sẽ đến sinh nhận lần thứ " + tuoit + " của " + danhxung.toLowerCase();
+	            clearInterval(t);
+	            t = setInterval(function() {
+	            	Demnguoc(ngaysinh);
+	            }, 500);
+
+	            return false;
+	        }
+	        function tinhngay(date1, date2){
+	        	var ngay = 1000*60*60*24;
+	        	date2.setFullYear(date1.getFullYear());
+	        	var khoangcach = date2.getTime() - date1.getTime();
+	        	if (khoangcach < 0) {
+	        		date2.setFullYear(date2.getFullYear() + 1);
+	        		khoangcach = date2.getTime() - date1.getTime();
+	        	}
+	        	console.log(khoangcach);
+	        	return Math.round((khoangcach)/ngay); 
+	        }
+	        function Demnguoc(ngaysinh){
+	        	var now = new Date();
+	        	ngaysinh.setFullYear(now.getFullYear());
+	        	var khoangcach = ngaysinh.getTime() - now.getTime();
+	        	if (khoangcach < 0) {
+	        		ngaysinh.setFullYear(ngaysinh.getFullYear() + 1);
+	        		khoangcach = ngaysinh.getTime() - now.getTime();
+	        	}
+	        	var ngay = Math.floor(khoangcach / (1000*60*60*24));
+	        	var gio = Math.floor((khoangcach % (1000*60*60*24)) / (1000*60*60));
+	        	var phut = Math.floor((khoangcach % (1000*60*60)) / (1000*60));
+	        	var giay = Math.floor((khoangcach % (1000*60)) / 1000);
+	        	document.getElementById("cau3").innerHTML ="Cụ thể là: " +  ngay + " ngày, " + gio + ":"
+	        	+ phut + ":" + giay;
+	        }
+	    </script>
+	</div>
+
+
+
+	
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+</body>
+</html>

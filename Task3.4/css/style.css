@@ -1,0 +1,90 @@
+body { 
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  font-size: 18px;
+}
+.header{
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+.body .content{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+  min-width: 80%;
+}
+.body #cau4{
+	position: absolute;
+	bottom: 1%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+.open-button {
+  display: block;
+  background-color: #555;
+  padding: 1% 1%;
+  border: none;
+  opacity: 0.8;
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  width: auto;
+}
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 2%;
+  top: 2%;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top: 2%; opacity:1}
+}
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: #eee;
+  opacity: 0.8;
+  color: black;
+}
+.form-container input[type=text], .form-container input[type=date] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.5;
+}
+.form-container .cancel {
+  background-color: blue;
+}
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+@media (max-width: 576px){
+  #cau4{
+    font-size: 14px;
+  }
+}

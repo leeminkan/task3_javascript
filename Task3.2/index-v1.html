@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+
+	<title>Task 3.2</title>
+</head>
+<body>
+	<div class="header"></div>
+	<div class="body">
+		
+
+		<section class="container">
+	        <div class="row">
+	            <div class="col-md-12">
+	                <h2>Task 3.2</h2>
+	                <ul id="MenuTab" class="nav nav-tabs">
+	                    <li class="nav-item"><a href="" data-target="#cau1" data-toggle="tab" class="nav-link small text-uppercase active">Câu 1</a></li>
+	                    <li class="nav-item"><a href="" data-target="#cau2" data-toggle="tab" class="nav-link small text-uppercase">Câu 2</a></li>
+	                    <li class="nav-item"><a href="" data-target="#cau3" data-toggle="tab" class="nav-link small text-uppercase">Câu 3</a></li>
+	                    <li class="nav-item"><a href="" data-target="#cau4" data-toggle="tab" class="nav-link small text-uppercase">Câu 4</a></li>
+	                </ul>
+	                <br>
+	                <div id="ContentTab" class="tab-content">
+	                	<div id="cau1" class="tab-pane fade active show">
+	                		<div class="cau1">
+	                			<p>
+	                				Có những cách đặt Javascript nào trong file HTML? Cho ví dụ minh họa.
+	                			</p>
+	                			<p class="tieude">
+	                				Cách 1: Internal - viết luôn trong file html.
+	                			</p>
+<pre>
+<code>
+	&lthtml&gt
+	&lthead&gt
+	&lttitle&gt&lt/title&gt
+	&ltscript language="javascript"&gt
+	alert("Hello World!");
+	&lt/script&gt
+	&lt/head&gt
+	&ltbody&gt
+
+	&lt/body&gt
+	&lt/html&gt
+</code>
+</pre>
+	                			<p class="tieude">
+	                				Cách 2: External - viết một file js rồi sau đó import vào
+	                			</p>
+<pre>
+<code>
+	&ltscript language="javascript" src="demo.js"&gt&lt/script&gt
+</code>
+</pre>
+	                			<p>Lúc này trong file demo.js sẽ không cần cặp &ltscript&gt&lt/script&gt nữa, trình duyệt sẽ biết được định dạng của file này là javascript.</p>
+	                			<p class="tieude">
+	                				Cách 3: Inline - trực tiếp trong thẻ html
+	                			</p>
+<pre>
+<code>
+	&ltinput type="button" onclick="alert(1)" value="Click Me"/&gt
+</code>
+</pre>
+	                			<p>Trong đoạn code trên, khi ta click vào button sự kiện onclick sẽ kích hoạt để thực thi lệnh alert(1) - đưa ra popup có giá trị 1</p>
+	                		</div>
+	                    </div>
+	                    <div id="cau2" class="tab-pane fade">
+	                        <div class="cau2">
+	                        	<p>Trong Javascript, kiểu dữ liệu được chia thành các loại cơ bản sau:</p>
+	                        	<ul>
+	                        		<li>String</li>
+	                        		<li>Number</li>
+	                        		<li>Boolean</li>
+	                        		<li>Object</li>
+	                        		<li>Undefined</li>
+	                        		<li>Array</li>
+	                        	</ul>
+	                        	<div class="string">
+	                        		<h1>String</h1>
+	                        		<p>Đây là kiểu chuỗi, được gán trong dấu nháy đơn hoặc kép. Trường hợp trong chuỗi cũng có xuất hiện dấu nháy đơn hoặc nháy đôi thì bắt buộc bạn phải thêm ký tự \ đằng trước dấu nháy đó nếu không sẽ bị lỗi cũ pháp.</p>
+	                        		<p>Lưu ý: Khi bạn muốn Enter xuống hàng một chuỗi trong Javascript thì bắt buộc phải sử dụng dấu + để nối chuỗi nếu không sẽ bị lỗi cú pháp.</p>
+	                        		<p>Ví dụ cách khai báo:</p>
+<pre>
+<code>
+	&ltscript&gt
+	var a = "Chuoi trong ngoac kep";
+	var b = 'Chuoi trong ngoac don';
+	var vidu = "Tui tên \"Phúc\"";
+	// Đúng
+	var xuongdong = "Cách đúng"
+	+ "nè";
+	// Sai
+	var xuongdong = "Cách sai
+	nè";
+	&lt/script&gt
+</code>
+</pre>
+	                        	</div>
+	                        	<div class="number">
+	                        		<h1>Number</h1>
+	                        		<p>Number bao gồm số nguyên với độ chính xác là 15 chữ số, số thực với độ chính xác là 17 chữ số. Ngoài ra, còn có giá trị NaN (Not a Number) đây là giá trị thuộc kiểu Number nhưng không phải là một số. Mặc khác, còn có Infinity là giá trị đại diện cho một số rất lớn, nằm ngoài khả năng đo đếm của Javascript.</p>
+	                        		<p>Ví dụ về cách khai báo:</p>
+<pre>
+<code>
+	&ltscript&gt
+	var a = 22;
+	var b = -1993;
+	&lt/script&gt
+</code>
+</pre>
+	                        		<p>Nếu số quá lớn, ta có thể thể hiện nó sang dạng mũ:</p>
+	                        		<pre>
+	                        			<code>
+	                        				&ltscript&gt
+	                        				document.write("5e+9 sẽ bằng với: " + (5e+9));
+	                        				&lt/script&gt
+	                        			</code>
+	                        		</pre>
+	                        	</div>
+
+	                        	<div class="Boolean">
+	                        		<h1>Boolean</h1>
+	                        		<p>Kiểu dữ liệu này chỉ có hai giá trị là true và false. Có 2 cách để nhận được giá trị này là gán trực tiếp và nhận từ một điều kiện.</p>
+	                        		<p>Ví dụ về cách gán: </p>
+<pre>
+<code>
+	&ltscript&gt
+	var a = true;
+	var b = false;
+	var c = 6 > 2;
+	&lt/script&gt
+</code>
+</pre>
+	                        	</div>
+								<div class="Object">
+	                        		<h1>Object</h1>
+	                        		<p>Đây là kiểu dữ liệu đối tượng, trong đó bao gồm các thuộc tính là các kiểu dữ liệu khác nhau cùng với những phương thức tương tự như hàm nhưng chỉ được gọi với đối tượng đó.</p>
+	                        		<p>Ví dụ về cách gán: </p>
+<pre>
+<code>
+	&ltscript&gt
+	var SinhVien = {
+	name:"Phúc",
+	gender:"Nam",
+	year:1998
+	}
+	&lt/script&gt
+</code>
+</pre>
+	                        	</div>
+	                        	<div class="Undefined">
+	                        		<h1>Undefined</h1>
+	                        		<p>Đây là kiểu dữ liệu thể hiện rằng biến chưa được xác định, chwua có kiểu dữ liệu cụ thể. </p>
+	                        		<p>Ví dụ khi khai báo biến mà không gán giá trị thì kiểu dữ liệu là undefined, hoặc ta cũng có thể gán trực tiếp.</p>
+<pre>
+<code>
+	&ltscript&gt
+	var myName; //Lúc này là undifined
+	var myName = "Phuc" //Kiểu String
+	var myName = undefined;
+	&lt/script&gt
+</code>
+</pre>
+	                        	</div>
+	                        	<div class="Array">
+	                        		<h1>Array</h1>
+	                        		<p>Array là mảng là trường hợp đặc biết cảu Object. Thật chất thì Array có kiểu dữ liệu là Object.</p>
+	                        		<p>Ví dụ tạo mảng: </p>
+<pre>
+<code>
+	&ltscript&gt
+	var mang = ["phantu1", "phantu2", "phantu3"];
+	&lt/script&gt
+</code>
+</pre>
+	                        	</div>
+	                        	<div class="note">
+	                        		<p>Để xác định kiểu dữ liệu của biến, ta sử dụng toán tử typeof</p>
+	                        		<p>Ví dụ: </p>
+<pre>
+<code>
+	&ltscript&gt
+	var b = typeof "Phuc"; //string
+	var c = typeof 1998; //number
+	var d = typeof true; //boolean
+	&lt/script&gt
+</code>
+</pre>
+	                        	</div>
+	                        </div>
+	                    </div>
+	                    <div id="cau3" class="tab-pane fade">
+	                    	<div class="cau3">
+	                    		<p>Làm thế nào để truy xuất 1 thẻ HTML bất kỳ theo ID, class, Name, tên thẻ HTML và theo CSS Selector? Cho ví dụ minh họa.</p>
+	                    		<p class="tieude">Truy xuất theo ID, ta sử dụng phương thức document.getElementById('id')</p>
+	                    		<p>Ví dụ</p>
+<pre>
+<code>
+	// Lấy thẻ input
+	var element = document.getElementById('website');
+
+	// Lấy giá trị của thẻ input
+	document.write(element.value);
+</code>
+</pre>
+	                    		<p class="tieude">Truy xuất theo Name, ta sử dụng phương thức document.getElementByName(name)</p>
+	                    		<p>Ví dụ</p>
+<pre>
+<code>
+	// Lấy thẻ input
+	var element = document.getElementByName('website');
+</code>
+</pre>
+	                    		<p class="tieude">Truy xuất theo tên thẻ HTML, ta sử dụng phương thức document.getElementsByTagName('tagname')</p>
+	                    		<p>Ví dụ</p>
+<pre>
+<code>
+	// Lấy thẻ input
+	var element = document.getElementsByTagName('input');
+
+	// Lấy giá trị của thẻ input
+	document.write(element[0].value);
+</code>
+</pre>
+	                    		<p class="tieude">Truy xuất theo class, ta sử dụng phương thức document.getElementsByClassName('input')</p>
+	                    		<p>Ví dụ</p>
+<pre>
+<code>
+	// Lấy thẻ input
+	var element = document.getElementsByClassName('website');
+
+	// Lấy giá trị của thẻ input
+	document.write(element[0].value);
+</code>
+</pre>
+	                    		<p class="tieude">Truy xuất theo Css Selector, ta sử dụng phương thức document.querySelectorAll("selector.css")</p>
+	                    		<p>Ví dụ: Giả sử ta có một đoạn mã HTML như sau:</p>
+<pre>
+<code>
+	&lthtml&gt
+	&ltbody&gt
+	&ltinput type="text" value="thẻ không cần lấy" class="website"/&gt
+	&ltdiv&gt
+	&ltinput type="text" value="Thẻ Cần Lấy" class="website"/&gt
+	&ltinput type="text" value="thẻ không cần lấy"/&gt
+	&lt/div&gt
+	&lt/body&gt
+	&lt/html&gt
+</code>
+</pre>
+	                    		<p>Và giờ khi muốn truy vấn đến thẻ input có class website nằm trong thẻ div thì ta có cú pháp sau, kết quả trả về là một mảng các Objects:</p>
+<pre>
+<code>
+	var element = document.querySelectorAll("div input.website");
+</code>
+</pre>
+	                    	</div>
+	                    </div>
+	                    <div id="cau4" class="tab-pane fade">
+	                    	<div class="cau4">
+	                    		<p>Xác định các lệnh Javascript tương ứng để thực hiện các yêu cầu sau:</p>
+	                    		<ul>
+	                    			<li>Hiển thị ngày tháng và thời gian hiện tại.</li>
+	                    			<li>Viết ghi chú trong Javascript (1 dòng, nhiều dòng)</li>
+	                    			<li>Viết 1 hàm (function) để tính tổng giá trị của 2 số ngẫu nhiên từ 1 đến 100.</li>
+	                    			<li>Đổi màu nền hay hình nền của trang.</li>
+	                    		</ul>
+	                    		<p class="tieude">Hiển thị ngày tháng và thời gian hiện tại.</p>
+	                    		<p>Để giải quyết bài toán này, ta cần dùng đến đối tượng Date. Nó cung cấp cho ta rất nhiều phương thức liên quan đến ngày tháng và thời gian.</p>
+	                    		<p>Kết quả:</p>
+	                    		<div class="output">
+	                    			<script type="text/javascript">
+	                    				function hihi(){
+	                    					var date = new Date();
+	                    					var gio = date.getHours();
+	                    					if (gio < 10){
+	                    						gio = "0" + gio;
+	                    					}
+	                    					var phut = date.getMinutes();
+	                    					if (phut < 10){
+	                    						phut = "0" + phut;
+	                    					}
+	                    					var giay = date.getSeconds();
+	                    					if (giay < 10){
+	                    						giay = "0" + giay;
+	                    					}
+	                    					var day =  ["Chủ Nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
+	                    					var resultime = gio + ":" + phut + ":" + giay;
+	                    					var month = date.getMonth() + 1;
+	                    					var resultngay = "Hôm nay là " + day[date.getDay()] + " , ngày " + date.getDate() + " tháng " + month + " năm " + date.getFullYear() + ".";
+	                    					document.getElementById('ngay').innerHTML = resultngay;
+	                    					document.getElementById('time').innerHTML = resultime;
+	                    					var t = setTimeout(function() {
+	                    						hihi();
+	                    					}, 500);
+	                    					console.log("Done");
+	                    				}
+	                    			</script>
+	                    			<button type="button" onclick="hihi()">Try it</button>
+	                    			<p id="ngay"></p>
+	                    			<p id="time"></p>
+	                    		</div>
+	                    		<p class="tieude">Viết ghi chú trong Javascript (1 dòng, nhiều dòng)</p>
+	                    		<p>Ví dụ viết ghi chú: </p>
+<pre>
+<code>
+	&ltscript&gt
+	var khong = 0;
+	//Đây là ghi chú 1 dòng
+	var mot = 1;
+	/*Đây là
+	ghi chú 1 hoặc nhiều dòng*/
+	&lt/script&gt
+</code>
+</pre>
+	                    		<p class="tieude">Viết 1 hàm (function) để tính tổng giá trị của 2 số ngẫu nhiên từ 1 đến 100.</p>
+	                    		<p>Để giải quyết vấn đề này, ta sử dụng phương thức random của đối tượng Math. Khi sử dụng Math.random() nó sẽ trả về ngẫu nhiên một số giữa 0 và 1.</p>
+	                    		<p>Kết quả:</p>
+	                    		<div class="output">
+	                    			<script type="text/javascript">
+
+	                    				function set(){
+	                    					document.getElementById("so1").value = Math.floor(Math.random() * 100) + 1;
+	                    					document.getElementById("so2").value = Math.floor(Math.random() * 100) + 1;
+	                    				}
+	                    				function tinhtong(){
+	                    					var a = Number(document.getElementById("so1").value);
+	                    					var phep = document.getElementById("cong").value;
+	                    					var b = Number(document.getElementById("so2").value);
+	                    					var ketqua;
+	                    					if (phep == "+")
+	                    					{
+	                    						ketqua = a + b;
+	                    						document.getElementById("so3").value = ketqua;
+	                    					}
+	                    				}
+	                    			</script>
+	                    			<input type="text" id="so1"/><br>
+	                    			<input type="text" value ="+" id="cong"/><br>
+	                    			<input type="text" id="so2"/><br>
+	                    			<input type="text" id="so3"/><br>
+	                    			<input type="button" value="Click vào để Random" id="set" onclick="set()" />
+	                    			<input type="button" value="Click vào để tính" onclick="tinhtong()" />
+	                    		</div>
+	                    		<p class="tieude">Đổi màu nền hay hình nền của trang.</p>
+	                    		<p>Kết quả:</p>
+	                    		<div class="output">
+	                    			<script type="text/javascript">
+										function change(){
+											var object = document.getElementsByTagName("body");
+											var color = document.getElementById("mau").value;
+											object[0].style.background = color;
+										}
+	                    			</script>
+	                    			<input type="text" value ="white" id="mau"/><br>
+	                    			<input type="button" value="Click vào để đổi màu nền" onclick="change()" />
+	                    		</div>
+	                    	</div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+		
+
+
+	</div>
+
+
+
+	
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+</body>
+</html>
